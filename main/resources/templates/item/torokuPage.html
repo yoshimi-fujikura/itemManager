@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品新規登録</title>
+</head>
+<body>
+	<h1>商品新規登録</h1>
+	<!--th:object="${itemForm}でFormオブジェクトと紐付け-->
+	<form th:action="@{/item/toroku}" th:object="${itemForm}" method="post">
+	    <div>
+	        <label>商品名</label>
+	    </div>
+		
+	    <div>
+			<!--th:field="*{}" は、Formオブジェクトのフィールドに入力した値が自動的にバインドされる-->
+			<!--placeholder:入力欄に薄く表示される入力例-->
+	        <input type="text" th:field="*{name}" placeholder="商品名を入力してください">
+	    </div>
+		
+	    <div>
+	        <label>価格</label>
+	    </div>
+		
+	    <div>
+	        <input type="number" th:field="*{price}" placeholder="価格を入力してください">
+	    </div>
+		
+	    <div>
+	        <input type="submit" name="send" value="登録する">
+	    </div>
+		
+	    <div>
+	        <!--一覧に戻る-->
+	        <a href="/item">戻る</a>
+	    </div>
+		
+	</form>
+</body>
+</html>
